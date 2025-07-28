@@ -130,6 +130,16 @@ ping archlinux.org
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Spark&#39;s Blog">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -137,14 +147,71 @@ ping archlinux.org
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Arch Linux安装教程(BIOS)
     </h1>
-    <div class="post-meta"><span title='2023-08-15 13:18:20 +0000 UTC'>August 15, 2023</span>
+    <div class="post-meta"><span title='2023-08-15 13:18:20 +0000 UTC'>151520+00-158</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;437 words
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#arch-linux官方安装指南"><a href="https://wiki.archlinuxcn.org/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97">Arch Linux官方安装指南</a></a>
+      <ul>
+        <li><a href="#arch-linux镜像下载地址ustc20230701"><a href="https://mirrors.ustc.edu.cn/archlinux/iso/2023.07.01/archlinux-2023.07.01-x86_64.iso">Arch Linux镜像下载地址USTC，2023.07.01</a></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#连接网络">连接网络</a></li>
+    <li><a href="#更新系统时间">更新系统时间</a></li>
+    <li><a href="#查看设备名">查看设备名</a></li>
+    <li><a href="#建立分区">建立分区</a>
+      <ul>
+        <li><a href="#开始分区"><del>开始分区</del></a></li>
+      </ul>
+    </li>
+    <li><a href="#格式化分区">格式化分区</a></li>
+    <li><a href="#挂载分区">挂载分区</a></li>
+    <li><a href="#安装系统">安装系统</a>
+      <ul>
+        <li><a href="#选择镜像站">选择镜像站</a></li>
+        <li><a href="#在etcpacmandmirrorlist文件的第5行添加">在/etc/pacman.d/mirrorlist文件的第5行添加：</a></li>
+        <li><a href="#安装必需软件包">安装必需软件包</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置系统">配置系统</a>
+      <ul>
+        <li><a href="#chroot">Chroot</a></li>
+        <li><a href="#设置时区">设置时区</a></li>
+      </ul>
+    </li>
+    <li><a href="#本地化">本地化</a></li>
+    <li><a href="#网络配置">网络配置</a></li>
+    <li><a href="#设置root密码">设置Root密码</a></li>
+    <li><a href="#安装引导程序">安装引导程序</a>
+      <ul>
+        <li><a href="#将grub安装引导至系统盘">将grub安装引导至系统盘：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="本文介绍arch-linux安装以bios方式为例">本文介绍Arch Linux安装，以BIOS方式为例<a hidden class="anchor" aria-hidden="true" href="#本文介绍arch-linux安装以bios方式为例">#</a></h1>
 <h1 id="本文所输入的命令均可用tab键补全"><em>本文所输入的命令均可用Tab键补全</em><a hidden class="anchor" aria-hidden="true" href="#本文所输入的命令均可用tab键补全">#</a></h1>
 <h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
@@ -351,6 +418,19 @@ mount /dev/vda1 /mnt/root
       <li><a href="http://localhost:1313/tags/guides/">Guides</a></li>
       <li><a href="http://localhost:1313/tags/arch-linux/">Arch Linux</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/install-amd-graphics-on-arch/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>在Arch Linux上安装AMD显卡驱动</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/hyprland-guide-install-useful-programs/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Hyprland指南(安装常用软件)</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -423,6 +503,53 @@ mount /dev/vda1 /mnt/root
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

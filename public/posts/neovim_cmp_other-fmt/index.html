@@ -129,6 +129,16 @@ return {
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Spark&#39;s Blog">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -136,14 +146,49 @@ return {
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Neovim使用`conform.nvim`或`none-ls.nvim`实现格式化代码
     </h1>
-    <div class="post-meta"><span title='2024-10-02 15:00:00 +0000 UTC'>October 2, 2024</span>
+    <div class="post-meta"><span title='2024-10-02 15:00:00 +0000 UTC'>2020+00-28</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;307 words
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#开始使用">开始使用</a>
+      <ul>
+        <li><a href="#安装代码格式化工具">安装代码格式化工具</a></li>
+      </ul>
+    </li>
+    <li><a href="#格式化代码">格式化代码</a></li>
+    <li><a href="#关于保存时自动格式化请看保存时自动格式化代码">关于保存时自动格式化，请看<a href="/content/posts/Neovim_cmp_other-fmt.md#%E4%BF%9D%E5%AD%98%E6%97%B6%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81">保存时自动格式化代码</a></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#开始使用-1">开始使用</a>
+      <ul>
+        <li><a href="#安装代码格式化工具-1">安装代码格式化工具</a></li>
+      </ul>
+    </li>
+    <li><a href="#格式化代码-1">格式化代码</a></li>
+    <li><a href="#关于保存时自动格式化请看保存时自动格式化代码-1">关于保存时自动格式化，请看<a href="/content/posts/Neovim_cmp_other-fmt.md#%E4%BF%9D%E5%AD%98%E6%97%B6%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81">保存时自动格式化代码</a></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#conformnvim-1"><code>conform.nvim</code></a></li>
+    <li><a href="#none-lsnvim"><code>none-ls.nvim</code></a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="该配置由chatgpt完成经笔者修改测试后完全可用注释可以不看">该配置由ChatGPT完成，经笔者修改测试后完全可用(注释可以不看)<a hidden class="anchor" aria-hidden="true" href="#该配置由chatgpt完成经笔者修改测试后完全可用注释可以不看">#</a></h1>
 <h1 id="conformnvim"><code>Conform.nvim</code><a hidden class="anchor" aria-hidden="true" href="#conformnvim">#</a></h1>
 <blockquote>
@@ -152,27 +197,27 @@ return {
 —— <a href="https://github.com/stevearc/conform.nvim">GitHub描述</a></p></blockquote>
 <h2 id="开始使用">开始使用<a hidden class="anchor" aria-hidden="true" href="#开始使用">#</a></h2>
 <p>首先，先安装<code>conform.nvim</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#ff7b72">return</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> {
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;stevearc/conform.nvim&#34;</span>, <span style="color:#8b949e;font-style:italic">-- 安装插件</span>
-</span></span><span style="display:flex;"><span>        config <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#ff7b72">function</span>()
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- 配置conform，使用black和isort格式化Python</span>
-</span></span><span style="display:flex;"><span>            require(<span style="color:#a5d6ff">&#34;conform&#34;</span>).setup({
-</span></span><span style="display:flex;"><span>                formatters_by_ft <span style="color:#ff7b72;font-weight:bold">=</span> {
-</span></span><span style="display:flex;"><span>                    <span style="color:#8b949e;font-style:italic">-- python = { &#34;black&#34; },</span>
-</span></span><span style="display:flex;"><span>                    python <span style="color:#ff7b72;font-weight:bold">=</span> { <span style="color:#a5d6ff">&#34;black&#34;</span> },
-</span></span><span style="display:flex;"><span>                    lua <span style="color:#ff7b72;font-weight:bold">=</span> { <span style="color:#a5d6ff">&#39;lua-ls&#39;</span> },
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;stevearc/conform.nvim&#34;</span>, <span style="color:#75715e">-- 安装插件</span>
+</span></span><span style="display:flex;"><span>        config <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- 配置conform，使用black和isort格式化Python</span>
+</span></span><span style="display:flex;"><span>            require(<span style="color:#e6db74">&#34;conform&#34;</span>).setup({
+</span></span><span style="display:flex;"><span>                formatters_by_ft <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">-- python = { &#34;black&#34; },</span>
+</span></span><span style="display:flex;"><span>                    python <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;black&#34;</span> },
+</span></span><span style="display:flex;"><span>                    lua <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;lua-ls&#39;</span> },
 </span></span><span style="display:flex;"><span>                },
 </span></span><span style="display:flex;"><span>            })
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- 自动格式化配置</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- vim.api.nvim_create_autocmd(&#34;BufWritePre&#34;, {</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">--     pattern = &#34;*.py&#34;,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">--     callback = function(args)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">--         require(&#34;conform&#34;).format({ bufnr = args.buf })</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">--     end,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- })</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">end</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- 自动格式化配置</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- vim.api.nvim_create_autocmd(&#34;BufWritePre&#34;, {</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">--     pattern = &#34;*.py&#34;,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">--     callback = function(args)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">--         require(&#34;conform&#34;).format({ bufnr = args.buf })</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">--     end,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- })</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>,
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>然后保存，重新进入Neovim就可以看见<code>lazy.nvim</code>正在安装了。</p>
@@ -182,11 +227,11 @@ return {
 sudo pacman -S python-black
 </code></pre><p>来安装<code>black</code>。你也可以用<code>isort</code>等<br>
 <code>formatters_by_ft</code>是一个列表，你可以添加你所用编程语言的格式化工具，如</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>formatters_by_ft <span style="color:#ff7b72;font-weight:bold">=</span> {
-</span></span><span style="display:flex;"><span>    bash <span style="color:#ff7b72;font-weight:bold">=</span> { <span style="color:#a5d6ff">&#39;beautysh&#39;</span> },
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>formatters_by_ft <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    bash <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;beautysh&#39;</span> },
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>关于格式化工具，你可以查看：<br>
-<a href="https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters">Black文档</a><br>
+<a href="https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters">Conform文档</a><br>
 或通过在Neovim中使用<code>:help conform-formatters</code>来查看</p>
 <h2 id="格式化代码">格式化代码<a hidden class="anchor" aria-hidden="true" href="#格式化代码">#</a></h2>
 <p>你只需要使用<code>:lua require(&quot;conform&quot;).format()</code>的命令来进行代码格式化。</p>
@@ -198,28 +243,28 @@ sudo pacman -S python-black
 —— <a href="https://github.com/nvimtools/none-ls.nvim/">GitHub描述</a></p></blockquote>
 <h2 id="开始使用-1">开始使用<a hidden class="anchor" aria-hidden="true" href="#开始使用-1">#</a></h2>
 <p>首先，安装<code>none-ls.nvim</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#ff7b72">return</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> {
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;nvimtools/none-ls.nvim&#34;</span>,  <span style="color:#8b949e;font-style:italic">-- 安装none-ls.nvim插件</span>
-</span></span><span style="display:flex;"><span>        dependencies <span style="color:#ff7b72;font-weight:bold">=</span> { <span style="color:#a5d6ff">&#34;nvim-lua/plenary.nvim&#34;</span> },  <span style="color:#8b949e;font-style:italic">-- 依赖plenary.nvim</span>
-</span></span><span style="display:flex;"><span>        config <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#ff7b72">function</span>()
-</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">local</span> none_ls <span style="color:#ff7b72;font-weight:bold">=</span> require(<span style="color:#a5d6ff">&#34;null-ls&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;nvimtools/none-ls.nvim&#34;</span>,  <span style="color:#75715e">-- 安装none-ls.nvim插件</span>
+</span></span><span style="display:flex;"><span>        dependencies <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;nvim-lua/plenary.nvim&#34;</span> },  <span style="color:#75715e">-- 依赖plenary.nvim</span>
+</span></span><span style="display:flex;"><span>        config <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">local</span> none_ls <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;null-ls&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- 配置none-ls，集成black</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- 配置none-ls，集成black</span>
 </span></span><span style="display:flex;"><span>            none_ls.setup({
-</span></span><span style="display:flex;"><span>                sources <span style="color:#ff7b72;font-weight:bold">=</span> {
+</span></span><span style="display:flex;"><span>                sources <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>                    none_ls.builtins.formatting.black,
 </span></span><span style="display:flex;"><span>                },
 </span></span><span style="display:flex;"><span>            })
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- 自动格式化配置</span>
-</span></span><span style="display:flex;"><span>            vim.cmd <span style="color:#a5d6ff">[[
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">                augroup LspFormatting
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">                    autocmd! * &lt;buffer&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">                    autocmd BufWritePre *.py lua vim.lsp.buf.format()
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">                augroup END
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">            ]]</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">end</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- 自动格式化配置</span>
+</span></span><span style="display:flex;"><span>            vim.cmd <span style="color:#e6db74">[[
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                augroup LspFormatting
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    autocmd! * &lt;buffer&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    autocmd BufWritePre *.py lua vim.lsp.buf.format()
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                augroup END
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            ]]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>,
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>然后保存，重新进入Neovim就可以看见lazy.nvim正在安装了。</p>
@@ -229,7 +274,7 @@ sudo pacman -S python-black
 sudo pacman -S python-black
 </code></pre><p>来安装<code>black</code>。你也可以用<code>isort</code>等<br>
 <code>sources</code>是一个列表，你可以添加你所用编程语言的格式化工具，如</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>sources <span style="color:#ff7b72;font-weight:bold">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>sources <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>    null_ls.builtins.formatting.stylua,
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>关于格式化工具，你可以查看：<br>
@@ -240,53 +285,53 @@ sudo pacman -S python-black
 <h1 id="保存时自动格式化代码">保存时自动格式化代码<a hidden class="anchor" aria-hidden="true" href="#保存时自动格式化代码">#</a></h1>
 <h2 id="conformnvim-1"><code>conform.nvim</code><a hidden class="anchor" aria-hidden="true" href="#conformnvim-1">#</a></h2>
 <p>使用该代码：</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#ff7b72">return</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> {
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;stevearc/conform.nvim&#34;</span>, <span style="color:#8b949e;font-style:italic">-- 安装插件</span>
-</span></span><span style="display:flex;"><span>        config <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#ff7b72">function</span>()
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- 配置conform，使用black和isort格式化Python</span>
-</span></span><span style="display:flex;"><span>            require(<span style="color:#a5d6ff">&#34;conform&#34;</span>).setup({
-</span></span><span style="display:flex;"><span>                formatters_by_ft <span style="color:#ff7b72;font-weight:bold">=</span> {
-</span></span><span style="display:flex;"><span>                    <span style="color:#8b949e;font-style:italic">-- python = { &#34;black&#34; },</span>
-</span></span><span style="display:flex;"><span>                    python <span style="color:#ff7b72;font-weight:bold">=</span> { <span style="color:#a5d6ff">&#34;black&#34;</span> },
-</span></span><span style="display:flex;"><span>                    lua <span style="color:#ff7b72;font-weight:bold">=</span> { <span style="color:#a5d6ff">&#39;lua-ls&#39;</span> },
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;stevearc/conform.nvim&#34;</span>, <span style="color:#75715e">-- 安装插件</span>
+</span></span><span style="display:flex;"><span>        config <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- 配置conform，使用black和isort格式化Python</span>
+</span></span><span style="display:flex;"><span>            require(<span style="color:#e6db74">&#34;conform&#34;</span>).setup({
+</span></span><span style="display:flex;"><span>                formatters_by_ft <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">-- python = { &#34;black&#34; },</span>
+</span></span><span style="display:flex;"><span>                    python <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;black&#34;</span> },
+</span></span><span style="display:flex;"><span>                    lua <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;lua-ls&#39;</span> },
 </span></span><span style="display:flex;"><span>                },
 </span></span><span style="display:flex;"><span>            })
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- 自动格式化配置</span>
-</span></span><span style="display:flex;"><span>            vim.api.nvim_create_autocmd(<span style="color:#a5d6ff">&#34;BufWritePre&#34;</span>, {
-</span></span><span style="display:flex;"><span>                pattern <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#a5d6ff">&#34;*.py&#34;</span>,
-</span></span><span style="display:flex;"><span>                callback <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#ff7b72">function</span>(args)
-</span></span><span style="display:flex;"><span>                    require(<span style="color:#a5d6ff">&#34;conform&#34;</span>).format({ bufnr <span style="color:#ff7b72;font-weight:bold">=</span> args.buf })
-</span></span><span style="display:flex;"><span>                <span style="color:#ff7b72">end</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- 自动格式化配置</span>
+</span></span><span style="display:flex;"><span>            vim.api.nvim_create_autocmd(<span style="color:#e6db74">&#34;BufWritePre&#34;</span>, {
+</span></span><span style="display:flex;"><span>                pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;*.py&#34;</span>,
+</span></span><span style="display:flex;"><span>                callback <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(args)
+</span></span><span style="display:flex;"><span>                    require(<span style="color:#e6db74">&#34;conform&#34;</span>).format({ bufnr <span style="color:#f92672">=</span> args.buf })
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">end</span>,
 </span></span><span style="display:flex;"><span>            })
-</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">end</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>,
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="none-lsnvim"><code>none-ls.nvim</code><a hidden class="anchor" aria-hidden="true" href="#none-lsnvim">#</a></h2>
 <p>使用以下代码：</p>
-<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#ff7b72">return</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">return</span> {
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#a5d6ff">&#34;nvimtools/none-ls.nvim&#34;</span>,  <span style="color:#8b949e;font-style:italic">-- 安装none-ls.nvim插件</span>
-</span></span><span style="display:flex;"><span>        dependencies <span style="color:#ff7b72;font-weight:bold">=</span> { <span style="color:#a5d6ff">&#34;nvim-lua/plenary.nvim&#34;</span> },  <span style="color:#8b949e;font-style:italic">-- 依赖plenary.nvim</span>
-</span></span><span style="display:flex;"><span>        config <span style="color:#ff7b72;font-weight:bold">=</span> <span style="color:#ff7b72">function</span>()
-</span></span><span style="display:flex;"><span>            <span style="color:#ff7b72">local</span> none_ls <span style="color:#ff7b72;font-weight:bold">=</span> require(<span style="color:#a5d6ff">&#34;null-ls&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;nvimtools/none-ls.nvim&#34;</span>,  <span style="color:#75715e">-- 安装none-ls.nvim插件</span>
+</span></span><span style="display:flex;"><span>        dependencies <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;nvim-lua/plenary.nvim&#34;</span> },  <span style="color:#75715e">-- 依赖plenary.nvim</span>
+</span></span><span style="display:flex;"><span>        config <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">local</span> none_ls <span style="color:#f92672">=</span> require(<span style="color:#e6db74">&#34;null-ls&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- 配置none-ls，集成black</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- 配置none-ls，集成black</span>
 </span></span><span style="display:flex;"><span>            none_ls.setup({
-</span></span><span style="display:flex;"><span>                sources <span style="color:#ff7b72;font-weight:bold">=</span> {
+</span></span><span style="display:flex;"><span>                sources <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>                    none_ls.builtins.formatting.black,
 </span></span><span style="display:flex;"><span>                },
 </span></span><span style="display:flex;"><span>            })
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b949e;font-style:italic">-- 自动格式化配置</span>
-</span></span><span style="display:flex;"><span>            vim.cmd <span style="color:#a5d6ff">[[
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">                augroup LspFormatting
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">                    autocmd! * &lt;buffer&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">                    autocmd BufWritePre *.py lua vim.lsp.buf.format()
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">                augroup END
-</span></span></span><span style="display:flex;"><span><span style="color:#a5d6ff">            ]]</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff7b72">end</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- 自动格式化配置</span>
+</span></span><span style="display:flex;"><span>            vim.cmd <span style="color:#e6db74">[[
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                augroup LspFormatting
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    autocmd! * &lt;buffer&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    autocmd BufWritePre *.py lua vim.lsp.buf.format()
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                augroup END
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            ]]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>,
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>两个切记不能同时开启！因为可能会返回不同的结果（当然使用相同的格式化工具就不会）。但是会增加占用（富哥当我没说:(）。所以建议二选一即可</p>
@@ -299,6 +344,14 @@ sudo pacman -S python-black
       <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
       <li><a href="http://localhost:1313/tags/neovim/">Neovim</a></li>
     </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/neovim_cmp_ruff_fmt/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Neovim使用ruff格式化Python代码</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -371,6 +424,53 @@ sudo pacman -S python-black
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

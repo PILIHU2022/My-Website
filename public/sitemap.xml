@@ -82,7 +82,5 @@
     <loc>http://localhost:1313/2025-jul-28/</loc>
   </url><url>
     <loc>http://localhost:1313/true/</loc>
-  </url><url>
-    <loc>http://localhost:1313/welcome/</loc>
   </url>
 </urlset>

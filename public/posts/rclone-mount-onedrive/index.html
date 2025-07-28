@@ -135,6 +135,16 @@ y/n&gt;
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Spark&#39;s Blog">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -142,14 +152,34 @@ y/n&gt;
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       使用rclone挂载OneDrive
     </h1>
-    <div class="post-meta"><span title='2024-09-01 08:58:42 +0000 UTC'>September 1, 2024</span>
+    <div class="post-meta"><span title='2024-09-01 08:58:42 +0000 UTC'>10142+00-18</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;221 words
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#onedrive账号">OneDrive账号</a></li>
+    <li><a href="#安装rclone">安装<code>Rclone</code></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#挂载到本地">挂载到本地</a></li>
+    <li><a href="#直接同步">直接同步</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="使用rclone挂载onedrive">使用<code>Rclone</code>挂载OneDrive<a hidden class="anchor" aria-hidden="true" href="#使用rclone挂载onedrive">#</a></h1>
 <p>数据是无价的，它是你的互联网资产，丢失了就很难找回来。目前人们推荐使用3-2-1的备份模式</p>
 <pre tabindex="0"><code>3-2-1备份模式：
@@ -239,6 +269,19 @@ config_type&gt;
     <ul class="post-tags">
       <li><a href="http://localhost:1313/tags/arch-linux/">Arch Linux</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/neovim_cmp_ruff_fmt/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Neovim使用ruff格式化Python代码</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/linux-set-default-application/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Linux下设置xdg-open打开某文件/目录的应用程序</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -311,6 +354,53 @@ config_type&gt;
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

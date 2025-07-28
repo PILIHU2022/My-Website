@@ -99,11 +99,21 @@
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Spark&#39;s Blog">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header">
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a></div>
   <h1>
     Posts
   </h1>
@@ -124,7 +134,7 @@ sudo systemctl stop reflector 这个服务主要是从Arch Linux Mirror Status �
 ping archlinux.org 更新系统时间 在 Live 环境中systemd-timesyncd默认启用，建立互联网连接后，时间将自动同步。
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-08-15 13:18:20 +0000 UTC'>August 15, 2023</span></footer>
+  <footer class="entry-footer"><span title='2023-08-15 13:18:20 +0000 UTC'>151520+00-158</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;437 words</footer>
   <a class="entry-link" aria-label="post link to Arch Linux安装教程(BIOS)" href="http://localhost:1313/posts/how-to-install-archbios/"></a>
 </article>
 
@@ -146,7 +156,7 @@ Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
 Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
 sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU</p>
   </div>
-  <footer class="entry-footer"><span title='2023-08-15 10:06:00 +0000 UTC'>August 15, 2023</span></footer>
+  <footer class="entry-footer"><span title='2023-08-15 10:06:00 +0000 UTC'>15150+00-158</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;67 words</footer>
   <a class="entry-link" aria-label="post link to Hyprland指南(安装常用软件)" href="http://localhost:1313/posts/hyprland-guide-install-useful-programs/"></a>
 </article>
 
@@ -164,7 +174,7 @@ paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/h
 若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-08-14 15:25:00 +0000 UTC'>August 14, 2023</span></footer>
+  <footer class="entry-footer"><span title='2023-08-14 15:25:00 +0000 UTC'>14140+00-148</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;90 words</footer>
   <a class="entry-link" aria-label="post link to Hyprland指南(安装其他软件)" href="http://localhost:1313/posts/hyprland-guide-install-other-programs/"></a>
 </article>
 
@@ -182,7 +192,7 @@ paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/h
 一、验证引导模式 &amp; 联网 &amp; 换源： $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.org #检查网络连接（如果有输出内容，即为联网成功） $ reflector --country China --save /etc/pacman.d/mirrorlist #换源（注意大小写） $ systemctl stop reflector #关闭reflector服务 $ vim /etc/pacman.d/mirrorlist #编辑/etc/pacman.d/mirrorlist文件，保留自己需要的源（一般推荐使用中科大源或清华源） $ timedatectl status #检查服务状态 如有疑问请参考Wiki以下章节：
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-01-06 13:30:43 +0000 UTC'>January 6, 2023</span></footer>
+  <footer class="entry-footer"><span title='2023-01-06 13:30:43 +0000 UTC'>60643+00-68</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;632 words</footer>
   <a class="entry-link" aria-label="post link to Arch Linux安装教程(以Legacy BIOS为例)" href="http://localhost:1313/posts/how-to-install-archbiosxiaoice/"></a>
 </article>
 <footer class="page-footer">

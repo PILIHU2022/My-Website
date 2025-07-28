@@ -126,6 +126,16 @@ sudo pacman -Ql catppuccin-gtk-theme-mocha | grep &lt;你挑选好的主题名�
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Spark&#39;s Blog">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -133,14 +143,38 @@ sudo pacman -Ql catppuccin-gtk-theme-mocha | grep &lt;你挑选好的主题名�
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       设置Hyprland全局黑暗模式
     </h1>
-    <div class="post-meta"><span title='2024-08-14 19:17:15 +0000 UTC'>August 14, 2024</span>
+    <div class="post-meta"><span title='2024-08-14 19:17:15 +0000 UTC'>141415+00-148</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;78 words
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装有关软件">安装有关软件！！</a></li>
+    <li><a href="#aur解君愁">AUR解君愁</a></li>
+    <li><a href="#qt">Qt</a></li>
+    <li><a href="#gtk">GTK</a></li>
+    <li><a href="#最后">最后</a>
+      <ul>
+        <li><a href="#关于查看theme-name">关于查看<code>Theme-Name</code></a></li>
+        <li><a href="#可选">可选</a></li>
+      </ul>
+    </li>
+    <li><a href="#可能是我个人的原因这里有一些软件是不追随设置的甚至出现一半黑暗一半明亮的">可能是我个人的原因，这里有一些软件是不追随设置的，甚至出现一半黑暗，一半明亮的😅😅</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="在hyprland中设置全局黑暗模式">在Hyprland中设置全局黑暗模式<a hidden class="anchor" aria-hidden="true" href="#在hyprland中设置全局黑暗模式">#</a></h1>
 <h1 id="折腾部分">折腾部分<a hidden class="anchor" aria-hidden="true" href="#折腾部分">#</a></h1>
 <h2 id="安装有关软件">安装有关软件！！<a hidden class="anchor" aria-hidden="true" href="#安装有关软件">#</a></h2>
@@ -182,6 +216,19 @@ exec = gsettings set org.gnome.desktop.interface color-scheme &#34;prefer-Dark&#
       <li><a href="http://localhost:1313/tags/hyprland/">Hyprland</a></li>
       <li><a href="http://localhost:1313/tags/arch/">Arch</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/linux-set-default-application/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Linux下设置xdg-open打开某文件/目录的应用程序</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/use_gpg_to_verify_in_github/">
+    <span class="title">Next »</span>
+    <br>
+    <span>在GitHub中使用GPG验证提交</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -254,6 +301,53 @@ exec = gsettings set org.gnome.desktop.interface color-scheme &#34;prefer-Dark&#
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

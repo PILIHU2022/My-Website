@@ -127,6 +127,16 @@ sudo vim /mnt/etc/systemd/system/getty@tty1.service.d/override.conf
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Spark&#39;s Blog">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -134,14 +144,37 @@ sudo vim /mnt/etc/systemd/system/getty@tty1.service.d/override.conf
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Arch Linux自动登录
     </h1>
-    <div class="post-meta"><span title='2024-02-12 22:18:02 +0000 UTC'>February 12, 2024</span>
+    <div class="post-meta"><span title='2024-02-12 22:18:02 +0000 UTC'>12122+00-128</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;53 words
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#写入一个systemd服务文件">写入一个systemd服务文件:</a>
+      <ul>
+        <li><a href="#若没有getty1serviced文件夹请创建">若没有<code>getty@1.service.d</code>文件夹，请创建:</a></li>
+      </ul>
+    </li>
+    <li><a href="#启动该服务">启动该服务</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#切换到其他tty">切换到其他tty</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="arch-linux怎么自动登录而且是免密的应该会有一些人会这样想毕竟如果用户名的密码过长而且密码错以后又要重输想必是让人血压升高的问题今天教程来了">Arch Linux怎么自动登录，而且是免密的，应该会有一些人会这样想，毕竟如果用户名的密码过长，而且密码错以后又要重输，想必是让人血压升高的问题。今天，教程来了<a hidden class="anchor" aria-hidden="true" href="#arch-linux怎么自动登录而且是免密的应该会有一些人会这样想毕竟如果用户名的密码过长而且密码错以后又要重输想必是让人血压升高的问题今天教程来了">#</a></h1>
 <h1 id="当然免密登录也会出现一些安全问题">当然免密登录也会出现一些安全问题<a hidden class="anchor" aria-hidden="true" href="#当然免密登录也会出现一些安全问题">#</a></h1>
 <h1 id="本教程具有一定的时限性具体操作以arch-wiki为准">本教程具有一定的时限性，具体操作以Arch Wiki为准！<a hidden class="anchor" aria-hidden="true" href="#本教程具有一定的时限性具体操作以arch-wiki为准">#</a></h1>
@@ -180,6 +213,19 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
     <ul class="post-tags">
       <li><a href="http://localhost:1313/tags/arch-linux/">Arch Linux</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/hugo-blog-github/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>使用Hugo搭建Blog&#43;GitHub Actions实现自动部署</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/install-amd-graphics-on-arch/">
+    <span class="title">Next »</span>
+    <br>
+    <span>在Arch Linux上安装AMD显卡驱动</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -252,6 +298,53 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

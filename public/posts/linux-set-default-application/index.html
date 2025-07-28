@@ -108,6 +108,16 @@ xdg-settings Arch man">
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Spark&#39;s Blog">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -115,14 +125,24 @@ xdg-settings Arch man">
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Linux下设置xdg-open打开某文件/目录的应用程序
     </h1>
-    <div class="post-meta"><span title='2024-08-20 11:55:17 +0000 UTC'>August 20, 2024</span>
+    <div class="post-meta"><span title='2024-08-20 11:55:17 +0000 UTC'>202017+00-208</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;27 words
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents"></nav>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="设置xdg-open打开某文件目录的默认应用程序">设置<code>xdg-open</code>打开某文件/目录的默认应用程序<a hidden class="anchor" aria-hidden="true" href="#设置xdg-open打开某文件目录的默认应用程序">#</a></h1>
 <p>你需要使用<code>xdg-mime</code>工具来获取<code>filetype</code></p>
 <pre tabindex="0"><code>xdg-mime query filetype path_to_file
@@ -142,6 +162,19 @@ xdg-settings Arch man">
     <ul class="post-tags">
       <li><a href="http://localhost:1313/tags/arch-linux/">Arch Linux</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/rclone-mount-onedrive/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>使用rclone挂载OneDrive</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/set-global-dark-mode-for-hyprland/">
+    <span class="title">Next »</span>
+    <br>
+    <span>设置Hyprland全局黑暗模式</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -214,6 +247,53 @@ xdg-settings Arch man">
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

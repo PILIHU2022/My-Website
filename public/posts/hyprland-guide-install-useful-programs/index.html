@@ -151,6 +151,16 @@ Writer:PILIHU">
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Spark&#39;s Blog">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -158,14 +168,38 @@ Writer:PILIHU">
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Hyprland指南(安装常用软件)
     </h1>
-    <div class="post-meta"><span title='2023-08-15 10:06:00 +0000 UTC'>August 15, 2023</span>
+    <div class="post-meta"><span title='2023-08-15 10:06:00 +0000 UTC'>15150+00-158</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;67 words
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装vscode">安装VScode</a>
+      <ul>
+        <li><a href="#剩下的就自己折腾吧">剩下的就自己折腾吧</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装qq">安装QQ</a></li>
+    <li><a href="#markdown编辑软件">Markdown编辑软件</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
   <div class="post-content"><h1 id="hyprland指南安装常用软件">Hyprland指南(安装常用软件)<a hidden class="anchor" aria-hidden="true" href="#hyprland指南安装常用软件">#</a></h1>
 <h2 id="安装vscode">安装VScode<a hidden class="anchor" aria-hidden="true" href="#安装vscode">#</a></h2>
 <p>全称为Visual Studio Code<!-- raw HTML omitted -->AUR<!-- raw HTML omitted -->，由于名字太长所以被人们简化成VSC(吧？)<del>不用管这些，我们只是用这个来码代码(屎山)</del></p>
@@ -229,6 +263,19 @@ SigLevel=Never</p>
       <li><a href="http://localhost:1313/tags/guides/">Guides</a></li>
       <li><a href="http://localhost:1313/tags/hyprland/">Hyprland</a></li>
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/how-to-install-archbios/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Arch Linux安装教程(BIOS)</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/hyprland-guide-install-other-programs/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Hyprland指南(安装其他软件)</span>
+  </a>
+</nav>
+
   </footer>
 </article>
     </main>
@@ -301,6 +348,53 @@ SigLevel=Never</p>
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 
