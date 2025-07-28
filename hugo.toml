@@ -1,0 +1,45 @@
+baseURL = 'https://blog.20250331.xyz/'
+languageCode = 'zh-cn'
+title = "Spark's Blog"
+theme = 'PaperMod'
+
+[params]
+# Meta description
+description = "A Blog of a student from China"
+
+# Appearance settings
+theme = 'auto'
+colorPalette = 'default'
+hideHeader = false
+
+[taxonomies]
+tag = 'tags'
+
+homeIntroTitle = 'Welcome!'
+
+paginationSize = 100
+listSummaries = true
+listDateFormat = '2025 Jul 28'
+
+[[params.social]]
+name = "github"
+url = "https://github.com/PILIHU2022"
+
+# Main menu pages
+[[params.menu]]
+name = "Home"
+url = "/"
+
+[[params.menu]]
+name = "Posts"
+url = "/posts"
+
+[[params.menu]]
+name = "About me"
+url = "/about"
+
+# Syntax highlight on code blocks
+[markup]
+[markup.highlight]
+style = 'github-dark'
+

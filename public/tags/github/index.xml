@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GitHub on Spark&#39;s Blog</title>
+    <link>http://localhost:1313/tags/github/</link>
+    <description>Recent content in GitHub on Spark&#39;s Blog</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 23 Jul 2024 16:30:01 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在GitHub中使用GPG验证提交</title>
+      <link>http://localhost:1313/posts/use_gpg_to_verify_in_github/</link>
+      <pubDate>Tue, 23 Jul 2024 16:30:01 +0000</pubDate>
+      <guid>http://localhost:1313/posts/use_gpg_to_verify_in_github/</guid>
+      <description>&lt;h1 id=&#34;介绍&#34;&gt;介绍&lt;/h1&gt;
+&lt;p&gt;首先，你需要知道，GitHub是有GitHub Docs的。&lt;a href=&#34;https://docs.github.com/zh&#34;&gt;传送门&lt;/a&gt;&lt;br&gt;
+本文所提及的在GitHub Docs中也有。&lt;a href=&#34;https://docs.github.com/zh/authentication/managing-commit-signature-verification/about-commit-signature-verification&#34;&gt;传送&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;关于提交验证&#34;&gt;关于提交验证&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;您可以在本地签署提交和标签，让其他人对您所做更改的源充满信心。
+对于大多数个人用户，GPG 或 SSH 会是对提交进行签名的最佳选择。
+生成 GPG 签名密钥比生成 SSH 密钥更复杂，但 GPG 具有 SSH 所没有的功能。 GPG 密钥可以在不再使用时过期或撤销。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;开始操作&#34;&gt;开始操作&lt;/h1&gt;
+&lt;h2 id=&#34;安装gnupg&#34;&gt;安装&lt;code&gt;gnupg&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;del&gt;其实默认就安装了&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&#34;生成密钥&#34;&gt;生成密钥&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gpg --full-generate-key
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果使用默认值，请连续按两次回车键
+若想自定义，选择序号，第9是默认项&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Please select what kind of key you want:
+   (1) RSA and RSA
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+   (9) ECC (sign and encrypt) *default*
+  (10) ECC (sign only)
+  (14) Existing key from card
+Your selection?
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;选择密钥的过期时间（默认选择0，表示永不过期）：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

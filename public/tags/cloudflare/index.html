@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Cloudflare | Spark&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="A Blog of a student from China">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/tags/cloudflare/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/cloudflare/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/cloudflare/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Spark&#39;s Blog (Alt + H)">Spark&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Cloudflare
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">提取Cloudflare Zero Trust节点
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>本文记录作者提取Cloudflare Zero Trust的节点的过程以及所用的工具 开始 首先需要你有一个Cloudflare账号，并且有Zero Trust，没有可以看这篇文章
+开始操作 首先介绍一下作者的设备： OS:Arch Linux 内核:linux-zen6.7.3 Clash-meta 1.18.1-2 由于Cloudflare Zero Trust是使用WireGuard协议，所以我们需要使用一个支持WireGuard协议的客户端，可以更换为其他的
+本文以Arch Linux为例
+首先 介绍一下作者提取节点时所用到的工具：
+Warp2Clash by CMLiussss 优选IP脚本 by MisakaNo 提取PrivateKey和PublicKey的工具 by MisakaNo(WGCF)
+或 提取PrivateKey和PublicKey的工具 by MisakaNo(Warp-go) 开始操作 首先你需要提取出来你的Zero Trust的PrivateKey和PublicKey，没有的话可以看这里
+将Warp2Clash脚本下载下来：
+wget -N -P Warp2Clash https://raw.githubusercontent.com/cmliu/Warp2Clash/main/W2C_start.sh &amp;&amp; cd Warp2Clash &amp;&amp; chmod &#43;x W2C_start.sh 若你有WARP账户许可证密钥，可以使用以下命令： ./W2C_start.sh {WARP账户许可证密钥} 如果你有PrivateKey和PublicKey的话可以使用以下命令： ./W2C_start.sh {PrivateKey} {PublicKey} {IPv6} 获取PrivateKey和PublicKey 首先打开提取工具，然后按照提示填写，Zero Trust用户选择“3”，然后访问网站并且将token复制到控制台回车，然后等待即可获取到PrivateKey和PublicKey，保留备用 优选IP，将优选IP脚本下载下来： wget -N https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp-yxip.sh 然后为脚本添加运行权限：
+chmod &#43;x ./warp-yxip.sh 然后执行脚本：
+./warp-yxip.sh 在菜单中输入2并且回车，等待执行结果出来以后将列表中的第一个中&#34;[]“中的IP地址即可
+注意：这必须要在断开梯子以后才能执行！否则会导致测试结果不准确或者无效！
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-02-06 14:07:46 +0000 UTC'>February 6, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to 提取Cloudflare Zero Trust节点" href="http://localhost:1313/posts/get-cloudflare-node/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">免信用卡申请Cloudflare Zero Trust
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Warning:Cloudflare Zero Trust的API请求已被我们的GFW拦截，已经失效！
+客户端们 Android：Cloudflare One Agent Windows；macOS；Linux等见官网 官方说明了在iOS和Android下使用Zero Trust的必须切换为Cloudflare One Agent，而Windows；macOS；Linux则不需要操作：
+macOS, Windows, and Linux No action is required for desktop clients at this time. The existing Cloudflare WARP client will continue to support both Zero Trust and 1.1.1.1 functionality. ​​iOS and Android Zero Trust users must migrate from the 1.1.1.1 app to the Cloudflare One Agent app by 2023-12-31. Organizations can migrate their teams with minimal disruption in one of two modes: manually or via a managed endpoint solution. Migration impact
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-01-17 23:05:59 +0000 UTC'>January 17, 2024</span></footer>
+  <a class="entry-link" aria-label="post link to 免信用卡申请Cloudflare Zero Trust" href="http://localhost:1313/posts/request-cloudflare-warp/"></a>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Spark&#39;s Blog</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
