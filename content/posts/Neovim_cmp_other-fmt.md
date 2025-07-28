@@ -52,7 +52,7 @@ formatters_by_ft = {
 }
 ```
 关于格式化工具，你可以查看：\
-[Black文档](https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters)\
+[Conform文档](https://github.com/stevearc/conform.nvim?tab=readme-ov-file#formatters)\
 或通过在Neovim中使用`:help conform-formatters`来查看
 ## 格式化代码
 你只需要使用`:lua require("conform").format()`的命令来进行代码格式化。
