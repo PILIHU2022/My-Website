@@ -26,15 +26,15 @@ theme = 'auto'
 colorPalette = 'default'
 hideHeader = false
 
-[params.homeInfoParams]
-Title = 'Hi! This blog belongs a student from China'
-Content = 'You can find me throught following platforms'
-[[params.socialIcons]]
-name = 'github'
-url = 'https://github.com/PILIHU2022'
-[[params.socialIcons]]
-name = 'gitlab'
-url = 'https://gitlab.com/PILIHU'
+# [params.homeInfoParams]
+# Title = 'Hi! This blog belongs a student from China'
+# Content = 'You can find me throught following platforms'
+# [[params.socialIcons]]
+# name = 'github'
+# url = 'https://github.com/PILIHU2022'
+# [[params.socialIcons]]
+# name = 'gitlab'
+# url = 'https://gitlab.com/PILIHU'
 
 [menus]
 [[menus.main]]
@@ -43,6 +43,9 @@ pageRef = '/'
 [[menus.main]]
 name = 'Tags'
 pageRef = '/tags'
+[[menus.main]]
+name = 'About'
+pageRef = '/about'
 
 [taxonomies]
 tag = 'tags'
