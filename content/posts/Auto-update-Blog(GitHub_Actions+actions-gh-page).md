@@ -1,6 +1,6 @@
 ---
 title: 实现自动更新Blog(actions-gh-page)
-date: 2024-01-12 22:47:52
+date: 2024-01-12T22:47:52+08:00
 tags: [ Blog ]
 draft: true
 ---

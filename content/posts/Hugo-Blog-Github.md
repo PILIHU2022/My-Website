@@ -1,6 +1,6 @@
 ---
 title: 使用Hugo搭建Blog+GitHub Actions实现自动部署
-date: 2024-07-18 12:00:59
+date: 2024-07-18T12:00:59+08:00
 tags: [ Blog ]
 categories: Blog
 ---

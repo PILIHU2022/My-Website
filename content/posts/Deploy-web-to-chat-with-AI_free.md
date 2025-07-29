@@ -1,6 +1,6 @@
 ---
 title: 部署Lobe Chat
-date: 2025-03-30 22:18:02
+date: 2025-03-30T22:18:02+08:00
 tags: [ AI ]
 categories: Others
 draft: true

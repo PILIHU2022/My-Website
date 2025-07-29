@@ -1,6 +1,6 @@
 ---
 title: 在GitHub中使用GPG验证提交
-date: 2024-07-23 16:30:01
+date: 2024-07-23T16:30:01+08:00
 tags: [GitHub]
 categories: Guide
 ---

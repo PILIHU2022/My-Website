@@ -1,11 +1,13 @@
 baseURL = 'https://blog.20250331.xyz/'
-languageCode = 'zh'
+languageCode = 'zh-cn'
 title = "Spark's Blog"
 theme = 'PaperMod'
 
 [params]
+title = "Spark's Blog"
+description = "ExampleSite description"
 # description = "A Blog of a student from China"
-DateFormat = "2025-07-28"
+DateFormat = "2025 Jul 28"
 
 ShowReadingTime = true
 ShowPostNavLinks = true
@@ -26,30 +28,33 @@ theme = 'auto'
 colorPalette = 'default'
 hideHeader = false
 
-# [params.homeInfoParams]
-# Title = 'Hi! This blog belongs a student from China'
-# Content = 'You can find me throught following platforms'
-# [[params.socialIcons]]
-# name = 'github'
-# url = 'https://github.com/PILIHU2022'
-# [[params.socialIcons]]
-# name = 'gitlab'
-# url = 'https://gitlab.com/PILIHU'
+[params.homeInfoParams]
+Title = 'Hi! This blog belongs a student from China'
+Content = 'You can find me throught following platforms'
+[[params.socialIcons]]
+name = 'github'
+url = 'https://github.com/PILIHU2022'
+[[params.socialIcons]]
+name = 'gitlab'
+url = 'https://gitlab.com/PILIHU'
 
 [menus]
 [[menus.main]]
 name = 'Home'
 pageRef = '/'
+weight = 1
 [[menus.main]]
 name = 'Tags'
 pageRef = '/tags'
+weight = 2
 [[menus.main]]
 name = 'About'
-pageRef = '/about'
+pageRef = "/about"
+weight = 10
 
 [taxonomies]
 tag = 'tags'
 
 paginationSize = 100
 listSummaries = true
-listDateFormat = '2025 Jul 28'
+# listDateFormat = '2025 Jul 28'

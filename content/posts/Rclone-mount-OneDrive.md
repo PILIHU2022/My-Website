@@ -1,6 +1,6 @@
 ---
 title: 使用rclone挂载OneDrive
-date: 2024-09-01 08:58:42
+date: 2024-09-01T08:58:42+08:00
 tags: [ Arch Linux ]
 categories: Arch Linux
 ---

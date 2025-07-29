@@ -1,6 +1,5 @@
 ---
 title: About Me
-date: 2025-07-29 11:02:28
 showToc: false
 hidemeta: true
 ShowBreadCrumbs: false

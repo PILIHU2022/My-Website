@@ -1,6 +1,6 @@
 ---
 title: Neovim使用`conform.nvim`或`none-ls.nvim`实现格式化代码
-date: 2024-10-02 15:00:00
+date: 2024-10-02T15:00:00+08:00
 tags: [ Linux, Neovim ]
 categories: Arch Linux
 ---

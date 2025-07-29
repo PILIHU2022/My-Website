@@ -1,6 +1,6 @@
 ---
 title: 使用Encfs加密文件或文件夹
-date: 2024-09-16 12:26:15
+date: 2024-09-16T12:26:15+08:00
 tags: [ Arch Linux ]
 categories: Arch Linux
 draft: true

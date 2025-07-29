@@ -1,6 +1,6 @@
 ---
 title: Neovim使用ruff格式化Python代码
-date: 2024-10-01 19:51:57
+date: 2024-10-01T19:51:57+08:00
 tags: [ Linux, Neovim ]
 categories: Arch Linux
 ---

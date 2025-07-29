@@ -1,6 +1,6 @@
 ---
 title: 在Arch Linux上安装AMD显卡驱动
-date: 2024-01-27 20:45:01
+date: 2024-01-27T20:45:01+08:00
 excerpt: 本文主要记录了我在Arch Linux中安装AMD显卡驱动的过程及要点 
 tags: [ Arch Linux ]
 categories: Arch Linux

@@ -1,6 +1,6 @@
 ---
 title: 设置Hyprland全局黑暗模式
-date: 2024-08-14 19:17:15
+date: 2024-08-14T19:17:15+08:00
 tags: [ Hyprland, Arch ]
 categories: Arch Linux
 ---

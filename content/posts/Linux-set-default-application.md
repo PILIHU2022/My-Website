@@ -1,6 +1,6 @@
 ---
 title: Linux下设置xdg-open打开某文件/目录的应用程序
-date: 2024-08-20 11:55:17
+date: 2024-08-20T11:55:17+08:00
 tags: [ Arch Linux ]
 categories: Arch Linux
 ---
