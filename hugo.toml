@@ -5,9 +5,8 @@ theme = 'PaperMod'
 
 [params]
 title = "Spark's Blog"
-description = "ExampleSite description"
-# description = "A Blog of a student from China"
-DateFormat = "2025 Jul 28"
+description = "A Blog of a student from China"
+dateFormat = ""
 
 ShowReadingTime = true
 ShowPostNavLinks = true
@@ -30,7 +29,7 @@ hideHeader = false
 
 [params.homeInfoParams]
 Title = 'Hi! This blog belongs a student from China'
-Content = 'You can find me throught following platforms'
+# Content = 'You can find me throught following platforms'
 [[params.socialIcons]]
 name = 'github'
 url = 'https://github.com/PILIHU2022'

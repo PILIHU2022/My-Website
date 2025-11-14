@@ -1,6 +1,6 @@
 ---
 title: Arch Linux自动登录
-date: 2024-02-12T22:18:02+08:00
+date: 2024-02-12 22:18:02
 tags: [ Arch Linux ]
 categories: Arch Linux
 ---
