@@ -3,6 +3,7 @@ title: Hyprland指南(安装常用软件)
 date: 2023-08-15T10:06:00+08:00
 categories: Guide
 tags: [ Guides, Hyprland ]
+draft: true
 ---
 
 # Hyprland指南(安装常用软件)

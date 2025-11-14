@@ -3,6 +3,7 @@ title: 使用Hugo搭建Blog+Cloudflare Pages实现自动部署
 date: 2024-07-19T5:00:00+08:00
 tags: [ Blog ]
 categories: Blog
+draft: true
 ---
 
 # Hugo介绍

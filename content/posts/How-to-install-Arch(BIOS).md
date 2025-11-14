@@ -3,6 +3,7 @@ title: Arch Linux安装教程(BIOS)
 date: 2023-08-15T13:18:20+08:00
 categories: Arch Linux
 tags: [ Guides, Arch Linux ]
+draft: true
 ---
 # 本文介绍Arch Linux安装，以BIOS方式为例
 
