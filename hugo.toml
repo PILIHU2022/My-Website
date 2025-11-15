@@ -32,8 +32,7 @@ externalIcon = true
 name = "Spark"
 email = "Spark-CN@outlook.com"
 link = "https://blog.20250331.xyz/"
-# avatar = "https://sm.ms/image/z452tUPHnam1bCX"
-avatar = "/Pictures/My-avator_Zhong.jpg"
+avatar = "https://sm.ms/image/z452tUPHnam1bCX"
 
 [params.homeInfoParams]
 Title = 'Hi! This blog belongs a student from China'
