@@ -5,7 +5,6 @@ hidemeta: true
 ShowBreadCrumbs: false
 ---
 # Hi 👋
-### Let me tell you something about me!
-I'm Spark, a senior hight school student who is learning coding with C-lang and Python.
+My repositories are on [GitHub(mainly)](https://github.com/PILIHU2022) and [GitLab](https://gitlab.com/PILIHU)
 
-My code is pushed to [GitHub](https://github.com/PILIHU2022) and [GitLab](https://gitlab.com/PILIHU)
+<img align="left" alt="Arch Linux" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/archlinux/archlinux-original.svg">

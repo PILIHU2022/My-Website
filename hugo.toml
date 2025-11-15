@@ -1,7 +1,7 @@
 baseURL = 'https://blog.20250331.xyz/'
 languageCode = 'zh-cn'
 title = "Spark's Blog"
-theme = 'PaperMod'
+theme = 'FixIt'
 
 [params]
 title = "Spark's Blog"
@@ -26,10 +26,19 @@ ShowCodeCopyButtons = true
 theme = 'auto'
 colorPalette = 'default'
 hideHeader = false
+externalIcon = true
+
+[params.author]
+name = "Spark"
+email = "Spark-CN@outlook.com"
+link = "https://blog.20250331.xyz/"
+# avatar = "https://sm.ms/image/z452tUPHnam1bCX"
+avatar = "/Pictures/My-avator_Zhong.jpg"
 
 [params.homeInfoParams]
 Title = 'Hi! This blog belongs a student from China'
 # Content = 'You can find me throught following platforms'
+
 [[params.socialIcons]]
 name = 'github'
 url = 'https://github.com/PILIHU2022'
@@ -49,17 +58,23 @@ weight = 1
 name = 'Tags'
 pageRef = '/tags'
 weight = 2
-[[menus.main]]
-name = 'Contact'
-pageRef = "/about/contact"
-weight = 9
+
 [[menus.main]]
 name = 'About'
 pageRef = "/about"
 weight = 10
+[[menus.main]]
+parent = "About"
+name = 'Contact Me'
+pageRef = "/about/contact"
+[[menus.main]]
+parent = "About"
+name = 'Friends'
+pageRef = "/about/friends"
 
 [taxonomies]
 tag = 'tags'
+category = "categories"
 
 paginationSize = 100
 listSummaries = true
