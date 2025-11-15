@@ -6,7 +6,6 @@ theme = 'FixIt'
 [params]
 title = "Spark's Blog"
 description = "A Blog of a student from China"
-dateFormat = ""
 
 ShowReadingTime = true
 ShowPostNavLinks = true
@@ -26,27 +25,41 @@ ShowCodeCopyButtons = true
 theme = 'auto'
 colorPalette = 'default'
 hideHeader = false
-externalIcon = true
+
 
 [params.author]
 name = "Spark"
+mail = "Spark-CN@outlook.com"
+
+[params.home]
+  [params.home.profile]
+  enable = true
+  social = true
+  title = 'Hi! This blog belongs a student from China'
+# subtitle = 'You can find me throught following platforms'
+
+[params.footer]
+enable = true
+copyright = true
+author = true
+since = "2025"
+license = "CC BY-NC-SA 4.0"
+[params.footer.powered]
+  enable = true
+  hugoLogo = true
+  themeLogo = true
+
+[params.social]
 email = "Spark-CN@outlook.com"
-link = "https://blog.20250331.xyz/"
-avatar = "https://sm.ms/image/z452tUPHnam1bCX"
+Mastodon = "@Spark2025"
+GitHub = "PILIHU2022"
 
-[params.homeInfoParams]
-Title = 'Hi! This blog belongs a student from China'
-# Content = 'You can find me throught following platforms'
-
-[[params.socialIcons]]
-name = 'github'
-url = 'https://github.com/PILIHU2022'
-[[params.socialIcons]]
-name = 'gitlab'
-url = 'https://gitlab.com/PILIHU'
-[[params.socialIcons]]
-name = 'email'
-url = 'mailto:Spark-CN@outlook.com'
+[params.tagcloud]
+enable = true
+min = 14
+max = 32
+peakCount = 10
+orderby = "name"
 
 [menus]
 [[menus.main]]
@@ -62,14 +75,14 @@ weight = 2
 name = 'About'
 pageRef = "/about"
 weight = 10
+# [[menus.main]]
+# name = "Contact Me"
+# pageRef = "/contact"
+# weight = 8
 [[menus.main]]
-parent = "About"
-name = 'Contact Me'
-pageRef = "/about/contact"
-[[menus.main]]
-parent = "About"
 name = 'Friends'
-pageRef = "/about/friends"
+pageRef = "/friends"
+weight = 9
 
 [taxonomies]
 tag = 'tags'
@@ -77,4 +90,6 @@ category = "categories"
 
 paginationSize = 100
 listSummaries = true
-# listDateFormat = '2025 Jul 28'
+
+
+

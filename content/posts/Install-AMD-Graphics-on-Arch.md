@@ -16,7 +16,7 @@ categories: Arch Linux
 Warning：不要查看野教程！！不要查看野教程！！不要查看野教程！！
 # 安装
 如果你碰巧与我使用的显卡是一样的，~~很好，你仍可能需要参照Wiki~~
-<mark>此处以AMD Radeon RX 6500 XT为例，安装AMDGPU驱动，ATI驱动请自行Google和参照Arch Wiki</mark>
+**此处以AMD Radeon RX 6500 XT为例，安装AMDGPU驱动，ATI驱动请自行Google和参照Arch Wiki**
 首先需要安装`mesa`包，使用以下命令：
 ```bash
 sudo pacman -S mesa lib32-mesa # lib32-mesa是对于32位程序，需要开启multilib
