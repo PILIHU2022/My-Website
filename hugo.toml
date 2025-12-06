@@ -71,7 +71,10 @@ weight = 1
 name = 'Tags'
 pageRef = '/tags'
 weight = 2
-
+[[menus.main]]
+name = "Diary"
+pageRef = "/diary"
+weight = 3
 [[menus.main]]
 name = 'About Me'
 parent = 'About'

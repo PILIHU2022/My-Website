@@ -43,3 +43,7 @@ Email me: Spark-CN@outlook.com
 - This domain was bought in [Spaceship](https://www.spaceship.com/), Nameserver using [Cloudflare](https://cloudflare.com/)
 - You can find all the configuration for this blog in [this GitHub repository](https://github.com/PILIHU2022/Blog)
 - Thanks for [Lruihao](https://lruihao.cn/)'s [docs](https://fixit.lruihao.cn/)
+
+# About the copyright
+All of the pages are under `CC BY-NC-SA 4.0` Deed
+[![CC BY-NC-SA 4.0 Logo](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
