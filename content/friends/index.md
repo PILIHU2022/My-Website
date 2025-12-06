@@ -1,5 +1,5 @@
 ---
-title: Index
+title: Friends
 subtitle:
 layout: friends
 date: 2025-11-21T20:14:03+08:00
@@ -11,6 +11,9 @@ keywords:
 comment: false
 ---
 
+menu:
+main:
+parent: About
 <!-- The `friends.yml` file placed in the `yourProject/data/` directory will be loaded automatically here. -->
 
 ---

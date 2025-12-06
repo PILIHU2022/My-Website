@@ -30,7 +30,7 @@ hideHeader = false
 [params.author]
 name = "Spark"
 mail = "Spark-CN@outlook.com"
-avator = "https://s2.loli.net/2025/11/15/z452tUPHnam1bCX.jpg"
+avatar = "https://s2.loli.net/2025/11/15/z452tUPHnam1bCX.jpg"
 
 [params.home]
   [params.home.profile]
@@ -73,14 +73,16 @@ pageRef = '/tags'
 weight = 2
 
 [[menus.main]]
-name = 'About'
+name = 'About Me'
+parent = 'About'
 pageRef = "/about"
-weight = 10
+weight = 8
 # [[menus.main]]
 # name = "Contact Me"
 # pageRef = "/contact"
 # weight = 8
 [[menus.main]]
+parent = 'About'
 name = 'Friends'
 pageRef = "/friends"
 weight = 9
@@ -88,9 +90,7 @@ weight = 9
 [taxonomies]
 tag = 'tags'
 category = "categories"
+collection = "collections"
 
 paginationSize = 100
 listSummaries = true
-
-
-
