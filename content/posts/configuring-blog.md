@@ -1,7 +1,7 @@
 +++
 title = "配置Blog有感"
 date = "2025-11-16T10:34:09+08:00"
-tags = [ "Other" ]
+tags = [ "Others" ]
 +++
 
 # 起因
